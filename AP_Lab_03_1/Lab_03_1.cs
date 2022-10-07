@@ -11,16 +11,16 @@ namespace AP_Lab_03_1
     {
         static void Main()
         {
-            // У завданні я помітив можливу помилку: якщо -0,4 < x < 0.4, програма не виконуватиме жодних розрахунків.
+            // У завданні я помітив можливу помилку: якщо -0,4 < x < 0.4, то y = х для А (програма не виконуватиме жодних розрахунків), а y для В буде виконувати розрахунки за формулою.
             Console.OutputEncoding = System.Text.Encoding.Default;
-
-            double x, A = 0, B = 0;
 
             Console.Write("Введіть значення для \"x\": ");
 
-            x = Double.Parse(Console.ReadLine().Replace(".", ","));
+            double x = Double.Parse(Console.ReadLine().Replace(".", ","));
 
             // Спосіб 1: розгалуження в скороченій формі.
+            double A = 0;
+
             if (x <= -1)
                 A = Math.Log10(Math.Abs(Math.Cos(5 * x))) + Math.Pow(Math.E, (1 / x) + x);
 
@@ -31,6 +31,8 @@ namespace AP_Lab_03_1
                 A = Math.Sin(5 * x) - Math.Sqrt(Math.Abs(1 - x));
 
             // Спосіб 2: розгалуження в повній формі.
+            double B;
+
             if (x <= -1)
                 B = Math.Log10(Math.Abs(Math.Cos(5 * x))) + Math.Pow(Math.E, (1 / x) + x);
 

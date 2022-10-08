@@ -16,38 +16,33 @@ namespace AP_Lab_03_1
 
             Console.Write("Введіть значення для \"x\": ");
 
-            double x = Double.Parse(Console.ReadLine().Replace(".", ","));
+            double x = Double.Parse(Console.ReadLine().Replace(".", ",")), y = 0;
 
             // Спосіб 1: розгалуження в скороченій формі.
-            double A = 0;
-
             if (x <= -1)
-                A = Math.Log10(Math.Abs(Math.Cos(5 * x))) + Math.Pow(Math.E, (1 / x) + x);
+                y = x + Math.Log10(Math.Abs(Math.Cos(5 * x))) + Math.Pow(Math.E, (1 / x));
 
             if (x > -1 && x < -0.4)
-                A = Math.Sqrt(Math.Pow((2 - x), 3) - Math.Tan(x));
+                y = x + Math.Sqrt(Math.Pow((2 - x), 3) - Math.Tan(x));
 
             if (x >= 0.4) 
-                A = Math.Sin(5 * x) - Math.Sqrt(Math.Abs(1 - x));
+                y = x + Math.Sin(5 * x) - Math.Sqrt(Math.Abs(1 - x));
 
+            Console.Write($"Отримане першим способом значення для \"y\": {y};\n");
             // Спосіб 2: розгалуження в повній формі.
-            double B;
 
             if (x <= -1)
-                B = Math.Log10(Math.Abs(Math.Cos(5 * x))) + Math.Pow(Math.E, (1 / x) + x);
+                y = x + Math.Log10(Math.Abs(Math.Cos(5 * x))) + Math.Pow(Math.E, (1 / x));
 
             else
             {
                 if (x > -1 && x < -0.4)
-                    B = Math.Sqrt(Math.Pow((2 - x), 3) - Math.Tan(x));
+                    y = x + Math.Sqrt(Math.Pow((2 - x), 3) - Math.Tan(x));
 
-                else B = Math.Sin(5 * x) - Math.Sqrt(Math.Abs(1 - x));
+                else y = x + Math.Sin(5 * x) - Math.Sqrt(Math.Abs(1 - x));
             }
 
-            // Частина виведення.
-            Console.Write($"Отримане першим способом значення для \"y\": {x + A};\n" +
-                $"отримане другим способом значення для \"y\": {x + B}");
-
+            Console.Write($"отримане другим способом значення для \"y\": {y}");
             Console.ReadLine();
         }
     }
